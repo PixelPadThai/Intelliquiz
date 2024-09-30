@@ -1,0 +1,23 @@
+{
+  "name": "backened",
+  "version": "1.0.0",
+  "description": "\"IntelliQuiz Backened\"",
+  "main": "index.js",
+  "type":"commonjs",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "author": "\"Omkar Kathile\"",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.3",
+    "socket.io": "^4.8.0"
+  }
+}
