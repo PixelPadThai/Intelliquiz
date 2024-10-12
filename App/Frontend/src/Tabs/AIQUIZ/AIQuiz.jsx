@@ -3,11 +3,7 @@ import GenAI from '../../component/GenerateQuiz/GenAI'
 
 const AIQuiz = () => {
 
-
-
-
-
-  return (
+return (
     <div>
        {/* <div className='w-11/12 mt-40 h-full'> */}
        <GenAI/>

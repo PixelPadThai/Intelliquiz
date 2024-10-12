@@ -19,7 +19,7 @@ return (
         <div className='w-full h-[600px] mt-24 flex flex-col gap-6  justify-evenly '>
           <Link to='/aiquiz' ><BorderBeamDemo name='AI Generated Quiz' /></Link>
           <Link to='/multiplayer' ><BorderBeamDemo name='Multiplayer Online Mode' /></Link> 
-          <Link to='/mcqtest' ><BorderBeamDemo name='Generate MCQ format test' /></Link>
+          <Link to='/mcqtest' ><BorderBeamDemo name='Prepare for Internships & Campus Placements' /></Link>
           <Link to='/userdashboard'> <BorderBeamDemo name='User DashBoard' /></Link>
            
           

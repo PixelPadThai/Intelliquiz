@@ -4,6 +4,7 @@ import Block from '../Block/Block';
 import Card from '../Card/Card';
 import Footer from '../Footer/Footer';
 import Intelli_Img from '../../assets/Intelli_Img1.jpg'
+import QuizIcon from '../../assets/QuizImgIcon3.png'
 
 const Home = () => {
   return (
@@ -38,22 +39,22 @@ const Home = () => {
 
 
       <div className='border-2 border-x-pink-200 mt-10'>
-        <p className='text-white text-7xl ml-8 mt-11 font-bold animate-appear'>Features</p>
+        <p className='text-white text-7xl ml-16 mt-11 font-bold animate-appear'>Features</p>
       </div>
         
 
-        <div className='border-2 border-orange-500 flex flex-col md:flex-row mt-28'>
-          <div className='border-2 border-orange-500 w-full md:w-1/3'>
-            <img className='w-full h-auto' src={AIimage} alt="" />
+        <div className='flex flex-col ml-12 md:flex-row mt-20'>
+          <div className='w-full md:w-1/3'>
+            <img className='w-full h-auto md:ml-16' src={QuizIcon} alt="" />
           </div>
 
-          <div className='flex flex-col gap-5 my-7 border-2 border-orange-500 w-full md:w-2/3  items-center  animate-appear'>
+          <div className='flex flex-col justify-center gap-9 my-7  w-full md:w-2/3  items-center  animate-appear'>
+            
             <Block name='Students Using Technology' />
             <Block name='A visual representation of an interactive quiz' />
             <Block name='Dashboard showing detailed quiz analytics' />
-            <Block name='Adaptive difficulty based on user choices' />
             <Block name='User profile tracking by rating' />
-            <Block name='Instant feedback on incorrect selections' />
+         
           </div>
         </div>
       </div>
@@ -62,7 +63,7 @@ const Home = () => {
       <div className='bg-black w-full h-1/2 border-2 border-green-500 flex-1 '>
 
         <div className='border-2 border-x-pink-200 mt-14'>
-        <p className='text-white text-7xl  mt-11 font-bold '>Features</p>
+        <p className='text-white text-7xl  mt-11 font-bold mr-40'>Features</p>
         </div>
       
          <div className='w-full min-h-full  py-24 border-2  border-blue-500 flex flex-col gap-3 md:flex-row justify-evenly items-center '>
