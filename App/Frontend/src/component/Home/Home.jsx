@@ -1,7 +1,8 @@
 import React from 'react';
 import AIimage from '../../assets/AI-Image.png';
 import Block from '../Block/Block';
-import Card from '../Card/Card';
+// ../Card/MagicCardDemo
+import MagicCardDemo from '../Card/Card';
 import Footer from '../Footer/Footer';
 import Intelli_Img from '../../assets/Intelli_Img1.jpg'
 import QuizIcon from '../../assets/QuizImgIcon3.png'
@@ -67,10 +68,10 @@ const Home = () => {
         </div>
       
          <div className='w-full min-h-full  py-24 border-2  border-blue-500 flex flex-col gap-3 md:flex-row justify-evenly items-center '>
+          <MagicCardDemo/>
+          <MagicCardDemo/>
+          <MagicCardDemo/>
           
-          <Card image={AIimage}/>
-          <Card image={AIimage}/>
-          <Card image={AIimage} />
 
 
          

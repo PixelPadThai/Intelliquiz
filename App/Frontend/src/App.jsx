@@ -7,6 +7,9 @@ import AIQuiz from "./Tabs/AIQUIZ/AIQuiz"
 import MCQTest from "./Tabs/MCQTest/MCQTest"
 import UserDashBoard from "./Tabs/UserDashBoard/UserDashBoard"
 import MultiplayerQuiz from "./Tabs/Multiplayer/MulitplayerQuiz"
+import CSfundamentals from "./Tabs/MCQTest/CardsQuiz/CSfundamentals"
+import DSAfundamentals from "./Tabs/MCQTest/CardsQuiz/DSAfundamentals"
+import OA from "./Tabs/MCQTest/CardsQuiz/OA"
 
 function App() {
   
@@ -21,7 +24,11 @@ function App() {
             <Route path="/main" element={<Main/>} />
                <Route path="/aiquiz" element={<AIQuiz/>}/>
                <Route path="/multiplayer" element={<MultiplayerQuiz/>} />
-               <Route path="/mcqtest" element={<MCQTest/> } />
+               <Route path="/mcqtest" element={<MCQTest/> } >
+                   <Route path=":/CS_fundamentals" element={<CSfundamentals/>} />
+                   <Route path=":/mcqtest/DSA_fundamentals" element={<DSAfundamentals/>} />
+                   <Route path=":/mcqtest/Online_Assessment" element={<OA/>} />
+               </Route>
                <Route path="/userdashboard" element={<UserDashBoard/>} />
             <Route/>
             <Route path="/signup" element={<Login/>} />
