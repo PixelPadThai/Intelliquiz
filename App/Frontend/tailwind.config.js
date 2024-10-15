@@ -11,6 +11,7 @@ export default {
       },
       backgroundImage: {
         'custom-grid': "url('./src/assets/bg-image.jpg')",
+        'LoginBg':"url('./src/assets/Login.jpg')"
       },
       animation: {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",

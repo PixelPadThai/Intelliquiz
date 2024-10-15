@@ -134,12 +134,12 @@ useEffect(() => {
   return (
     <div className="bg-black w-screen h-screen text-white flex justify-center items-center">
     {!info ? (
-      <div className='flex flex-col gap-10 '>
-        <h1 className='text-5xl text-bold'>QuizClash 💡</h1>
+      <div className='flex flex-col gap-20 border-white w-1/2 h-2/3 mt-10 p-5 justify-center   '>
+        <h1 className='text-5xl text-bold text-center -mt-11'> Mutliplayer Battles 💡</h1>
         <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
-   <input required placeholder='Enter your name' className='text-black p-2' value={name} onChange={(e)=>setName(e.target.value)}/><br/>
-   <input required placeholder='Enter room no' className='text-black p-2' value={room} onChange={(e)=>setRoom(e.target.value)} />
-   <button type='submit' className='border-white p-2 border-2 w-4/5 m-auto gap-2 mt-5'>JOIN</button>
+   <input required placeholder='Enter your name' className='text-black p-2 rounded-lg' value={name} onChange={(e)=>setName(e.target.value)}/><br/>
+   <input required placeholder='Enter room no' className='text-black p-2 rounded-lg'  value={room} onChange={(e)=>setRoom(e.target.value)} />
+   <button type='submit' className='border-white  p-2 bg-cyan-600 rounded-md w-4/5 m-auto gap-2 mt-14'>JOIN ROOM</button>
    </form>
    </div>
     ) : (

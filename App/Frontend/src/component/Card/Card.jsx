@@ -23,7 +23,7 @@ const Card = (props) => {
         <p className='text-center bold mt-3'>{props.data}</p>
 
         
-        <button onClick={handleNavigation} className=' mt-32 ml-36 px-6 rounded-md p-2 bg-slate-800 text-white hover:bg-slate-700'>Start Quiz</button>
+        <Link to={props.route}><button onClick={handleNavigation} className=' mt-32 ml-36 px-6 rounded-md p-2 bg-slate-800 text-white hover:bg-slate-700'>Start Quiz</button></Link>
         
       
     </div>

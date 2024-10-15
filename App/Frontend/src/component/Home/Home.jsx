@@ -17,7 +17,7 @@ const Home = () => {
             <h2 className='text-3xl md:text-8xl font-bold text-blue-300 mt-10 md:mt-40 '>
               AI Driven Quiz
             </h2>
-            <p className='mt-5 text-pretty md:text-xl font-semibold '>
+            <p className='mt-5  md:text-xl  '>
             Elevate your learning with AI-driven quizzes and multiplayer online modes, designed to make studying smarter and more engaging for students
             </p>
             

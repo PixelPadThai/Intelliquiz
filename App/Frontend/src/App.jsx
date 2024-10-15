@@ -24,12 +24,13 @@ function App() {
             <Route path="/main" element={<Main/>} />
                <Route path="/aiquiz" element={<AIQuiz/>}/>
                <Route path="/multiplayer" element={<MultiplayerQuiz/>} />
-               <Route path="/mcqtest" element={<MCQTest/> } >
-                   <Route path=":/CS_fundamentals" element={<CSfundamentals/>} />
-                   <Route path=":/mcqtest/DSA_fundamentals" element={<DSAfundamentals/>} />
-                   <Route path=":/mcqtest/Online_Assessment" element={<OA/>} />
-               </Route>
-               <Route path="/userdashboard" element={<UserDashBoard/>} />
+               <Route path="/mcqtest" element={<MCQTest/> } />
+                   
+               
+               <Route path="mcqtest/CS_fundamentals" element={<CSfundamentals/>} />
+                <Route path="mcqtest/DSA_fundamentals" element={<DSAfundamentals/>} />
+                <Route path="mcqtest/Online_Assessment" element={<OA/>} />
+               <Route path="mcqtest/userdashboard" element={<UserDashBoard/>} />
             <Route/>
             <Route path="/signup" element={<Login/>} />
             
