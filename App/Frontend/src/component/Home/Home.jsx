@@ -5,95 +5,167 @@ import Block from '../Block/Block';
 import MagicCardDemo from '../Card/Card';
 import Footer from '../Footer/Footer';
 import Intelli_Img from '../../assets/Intelli_Img1.jpg'
-import QuizIcon from '../../assets/QuizImgIcon3.png'
-
+import QuizIcon from '../../assets/QuizIcon2.png'
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
+import brainImage from '../../assets/brain.png';
+import MultiplayerIcon from '../../assets/multiplayer.png';
 const Home = () => {
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/main');
+  };
+  const featuresRef = useRef(null);
+  const listRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-slide-in-left');
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (featuresRef.current) {
+      observer.observe(featuresRef.current);
+    }
+    
+    
+
+    return () => {
+      if (featuresRef.current) {
+        observer.unobserve(featuresRef.current);
+      }
+    };
+
+  }, []);
+  useEffect(() => {
+    if (listRef.current) {
+      const listItems = listRef.current.querySelectorAll('li');
+      listItems.forEach((item, index) => {
+        const letters = item.textContent.split('');
+        item.innerHTML = letters.map((letter, i) => `<span style="display: inline-block; animation: letter-pull-up 0.3s ease-out forwards; animation-delay: ${i * 0.02}s;">${letter}</span>`).join('');
+      });
+    }
+  }, []);
   return (
 
     <>
-      <div className='w-full min-h-screen bg-black flex flex-col md:flex-row text-white border-2 border-pink-300'>
-        <div className='w-full mt-12 md:mt-24 flex flex-col-reverse md:flex-row justify-between border-pink-500 border-2 px-4 md:px-0'>
-          <div className='border-2 border-purple-600 p-4 md:ml-32 md:w-1/2 flex flex-col items-center gap-2'>
-            <h2 className='text-3xl md:text-8xl font-bold text-blue-300 mt-10 md:mt-40 '>
+    <div className='bg-black w-full min-h-screen flex flex-col items-center justify-center'>
+      <div className='w-full min-h-screen scroll-smooth bg-black flex flex-col md:flex-row text-white '>
+        <div className='w-full mt-12 md:mt-24 flex flex-col-reverse md:flex-row justify-between  px-4 md:px-0'>
+          <div className=' p-4 md:ml-32 md:w-1/2 flex flex-col items-center gap-2'>
+            <h2 className=' text-3xl md:text-8xl font-bold text-blue-300 mt-10 md:mt-40 animate-fade-move'>
               AI Driven Quiz
             </h2>
-            <p className='mt-5  md:text-xl  '>
+            <p className='mt-5  md:text-xl animate-fade-in '>
             Elevate your learning with AI-driven quizzes and multiplayer online modes, designed to make studying smarter and more engaging for students
             </p>
             
             <div className=' flex justify-center md:justify-start mt-28 mr-14'>
-              <button className='bg-blue-700 p-4 px-8 md:px-16 rounded-md shadow-xl shadow-transparent'>
+              <button onClick={handleClick}  className='bg-blue-700 font-semibold p-4 px-8 md:px-16 rounded-md shadow-xl shadow-transparent'>
                 Get Started
               </button>
             </div>
           </div>
-          <div className='border-2 border-pink  flex justify-center md:justify-end md:w-1/2 '>
-            <img className='h-fit w-10/12 mr-10 mt-20'   src={AIimage} alt='AI' />
+          <div className='flex justify-center md:justify-end md:w-1/2'>
+            <img className='h-fit w-10/12 mr-10 mt-20  drop-shadow-[0_10px_15px_rgba(135,206,235,0.7)] animate-move-up-down' src={AIimage} alt='AI-Image' />
           </div>
+         
         </div>
       </div>
 
       {/* --------- NEW SECTION --------------- */}
 
-      
-      <div className='bg-black w-full min-h-screen border-pink-300 border-2'>
+      <hr  className='border-white w-full'/>
+      <div className='bg-black w-full min-h-screen mt-14 '>
 
 
-      <div className='border-2 border-x-pink-200 mt-10'>
-        <p className='text-white text-7xl ml-16 mt-11 font-bold animate-appear'>Features</p>
+       <div >
+        <p ref={featuresRef} className='text-white text-7xl ml-16 p-4 font-bold '>Features</p>
       </div>
-        
-
-        <div className='flex flex-col ml-12 md:flex-row mt-20'>
-          <div className='w-full md:w-1/3'>
-            <img className='w-full h-auto md:ml-16' src={QuizIcon} alt="" />
-          </div>
-
-          <div className='flex flex-col justify-center gap-9 my-7  w-full md:w-2/3  items-center  animate-appear'>
-            
-            <Block name='Students Using Technology' />
-            <Block name='A visual representation of an interactive quiz' />
-            <Block name='Dashboard showing detailed quiz analytics' />
-            <Block name='User profile tracking by rating' />
-         
+      <hr  className='border-white w-full'/>
+       
+        <div className='w-full min-h-full  py-24  flex flex-col gap-1 md:flex-row justify-evenly items-center '> 
+          <img className='w-1/4 h-1/4 drop-shadow-[0_5px_5px_rgba(255,105,180,0.5)] animate-fade-in' src={brainImage} alt="" />
+          <div className='flex flex-col gap-10'>
+             <h3 className='text-white font-semibold  text-4xl animate-fade-move md:text-center  -mt-6'>PARAGAPH BASED QUIZ GENERATION</h3>
+             <ul ref={listRef} className='text-white flex flex-col gap-4 p-12 bg-slate-900 border-spacing-1 rounded-lg border-2 border-white py-16 animate-border-beam' >
+               <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem, ipsum dolor sit amet consectetur adipisicing elit..</li>
+               <li className='text-white text-xl text-center animate-letter-pull-up  '>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+               <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+               {/* <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li> */}
+             </ul>
           </div>
         </div>
+        <hr  className='border-white w-full'/>
+        
+        <div className='w-full min-h-full  py-24  flex flex-col gap-1 md:flex-row justify-evenly items-center '> 
+        
+        <div className='flex flex-col gap-10'>
+             <h3 className='text-white font-semibold  text-4xl animate-fade-move md:text-center  -mt-6'>MULTIPLAYER QUIZ MODE</h3>
+             <ul ref={listRef} className='text-white flex flex-col gap-4 p-12 bg-slate-900 border-spacing-1 rounded-lg border-2 border-white py-16' >
+               <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem, ipsum dolor sit amet consectetur adipisicing elit..</li>
+               <li className='text-white text-xl text-center animate-letter-pull-up  '>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+               <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+               {/* <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li> */}
+             </ul>
+          </div>
+          <img className='w-1/4 h-1/4 drop-shadow-[0_5px_5px_rgba(255,255,255,0.5)] animate-fade-in filter invert ' src={MultiplayerIcon} alt="" />
+          
+        </div>
+        <hr  className='border-white w-full'/>
+        <div className='w-full min-h-full  py-24  flex flex-col gap-1 md:flex-row justify-evenly items-center '> 
+          <img className='w-1/4 h-1/4 drop-shadow-[0_5px_5px_rgba(255,255,255,0.7)] animate-fade-in' src={QuizIcon} alt="" />
+          <div className='flex flex-col gap-10'>
+             <h3 className='text-white font-semibold  text-4xl animate-fade-move md:text-center  -mt-6'>PREPARE FOR ONLINE ASSESSMENT</h3>
+             <ul ref={listRef} className='text-white flex flex-col gap-4 p-12 bg-slate-900 border-spacing-1 rounded-lg border-2 border-white py-16 animate-border-beam' >
+               <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem, ipsum dolor sit amet consectetur adipisicing elit..</li>
+               <li className='text-white text-xl text-center animate-letter-pull-up  '>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+               <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+               {/* <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li> */}
+             </ul>
+          </div>
+        </div>
+
+        
       </div>
+      <hr  className='border-white w-full'/>
 
 
-      <div className='bg-black w-full h-1/2 border-2 border-green-500 flex-1 '>
+      {/* --------- NEW SECTION --------------- */}
 
-        <div className='border-2 border-x-pink-200 mt-14'>
+        {/* <div className='border-2 border-x-pink-200 mt-14'>
         <p className='text-white text-7xl  mt-11 font-bold mr-40'>Features</p>
-        </div>
+        </div> */}
       
-         <div className='w-full min-h-full  py-24 border-2  border-blue-500 flex flex-col gap-3 md:flex-row justify-evenly items-center '>
-          <MagicCardDemo/>
-          <MagicCardDemo/>
-          <MagicCardDemo/>
-          
-
-
-         
-
-          
-
-         </div>
         
-      </div>
 
-      <div className='bg-black w-full min-h-screen border-2 border-yellow-300'>
+      <div className='bg-black w-full h-screen'>
+        <div className='w-full h-full mt-20 '>
+          <p className='text-7xl text-white ml-8 text-center'>MADE FOR WHOM ?</p>
+          <div className='flex gap-2 mt-10  w-full h-2/3 '>
+            <div className='flex-1 round-md border-2 border-white'></div>
+            <div className='flex-1 round-md border-2 border-white'></div>
+            <div className='flex-1 round-md border-2 border-white'></div>
+          </div>
+        </div>
+      </div>
+      
+      <div className='bg-black w-full min-h-screen '>
 
         <div className='mt-10'>
-          <p className='text-7xl text-white text-center'>About Us</p>
+          <p className='text-7xl text-white ml-8 '>About us</p>
 
-          <div className='w-1/2 m-auto'>
-          <p className='text-white mt-8'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum aliquid placeat possimus debitis fuga, maxime quos iure, dolore, et facilis sit voluptates ex minima at adipisci impedit ipsa natus illo fugiat quo.</p>
 
-          </div>
+          
           
         </div>
             
+      </div>
       </div>
       <Footer></Footer>
     </>
@@ -101,5 +173,3 @@ const Home = () => {
 };
 
 export default Home;
-
-

@@ -12,13 +12,16 @@ import DSAfundamentals from "./Tabs/MCQTest/CardsQuiz/DSAfundamentals"
 import OA from "./Tabs/MCQTest/CardsQuiz/OA"
 
 function App() {
-  
+  // const Location=useLocation();
+
+  // const excludeLocation=['/aiquiz'];
 
   return (
     <>
         <BrowserRouter>
 
           <Navbar/>
+          {/* {!excludedRoutes.includes(location.pathname) && <Navbar />} */}
           <Routes>
             <Route path="/"  element={<Home/>} />
             <Route path="/main" element={<Main/>} />

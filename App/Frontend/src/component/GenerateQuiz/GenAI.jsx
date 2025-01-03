@@ -23,10 +23,12 @@ const GenAI = () => {
     // console.log("Loading")
     setLoader(true);
     setAnswer("loading");
-    // <SpinnerLoad/>
+    // previous - AIzaSyDzDsA_rg1EzgFasXjH7kudY7g9ti9mEIo
+    // new - AIzaSyB438NceYat0VDV1bOWFW_jWStArOQqUM8
+    // <SpinnerLoad/>  
       const response= await axios({
-
-        url:"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyDzDsA_rg1EzgFasXjH7kudY7g9ti9mEIo",
+          
+        url:"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyB438NceYat0VDV1bOWFW_jWStArOQqUM8",
         method:"post",
         data:{
           contents:[
@@ -51,7 +53,7 @@ const GenAI = () => {
       <>
 
 
-      <div className='w-full bg-black h-screen'>
+      <div className='w-full bg-black h-full'>
       {/* { <div  className='w-full bg-black h-full flex flex-col  items-center  gap-8 '>
         <h1 className='text-white tracking-wider  text-5xl font-sans font-bold mt-56'>PASTE YOUR PARAGRAPH</h1>
         <textarea className=' w-4/5 bg-transparent p-6 border-2 border-white  text-white'  value={question} onChange={(e)=>{setQuestion(e.target.value)}} cols="30" rows="10" ></textarea>
@@ -61,7 +63,7 @@ const GenAI = () => {
       </div>} */}
 
       
-      {loader? <div> <SpinnerLoad/></div> : <div className={`w-full bg-black min-h-fit flex flex-col  items-center gap-8 ${hide}`}>
+      {loader? <div> <SpinnerLoad/></div> : <div className={`w-full bg-black h-screen flex flex-col  items-center gap-8 ${hide}`}>
         <h1 className='text-white tracking-wider  text-5xl font-sans font-bold mt-56'>PASTE YOUR PARAGRAPH</h1>
         <textarea className=' w-4/5 bg-transparent p-6 border-2 border-white  text-white'  value={question} onChange={(e)=>{setQuestion(e.target.value)}} cols="30" rows="10" ></textarea>
         <button className='rounded-md w-1/3  my-0 mx-auto  p-4 bg-blue-700 text-white' onClick={generateAns}>Generate Quiz</button>
@@ -69,10 +71,10 @@ const GenAI = () => {
         
       </div>}
 
-         <div className='mt-0'>
+         <div className=''>
 
 
-        { displayQuiz &&  <pre className='mt-0 rounded-lg text-lg text-lime-400  ml-80 '>{answer}</pre>}
+        { displayQuiz &&  <pre className='  rounded-lg text-lg text-lime-400  ml-80 '>{answer}</pre>}
         </div>
       </div>
       </>)

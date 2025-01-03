@@ -135,7 +135,7 @@ useEffect(() => {
     <div className="bg-black w-screen h-screen text-white flex justify-center items-center">
     {!info ? (
       <div className='flex flex-col gap-20 border-white w-1/2 h-2/3 mt-10 p-5 justify-center   '>
-        <h1 className='text-5xl text-bold text-center -mt-11'> Mutliplayer Battles 💡</h1>
+        <h1 className='text-5xl text-bold text-center -mt-11'> Multiplayer Battles 💡</h1>
         <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
    <input required placeholder='Enter your name' className='text-black p-2 rounded-lg' value={name} onChange={(e)=>setName(e.target.value)}/><br/>
    <input required placeholder='Enter room no' className='text-black p-2 rounded-lg'  value={room} onChange={(e)=>setRoom(e.target.value)} />
