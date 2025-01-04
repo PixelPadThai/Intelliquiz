@@ -21,7 +21,7 @@ const Navbar = () => {
         <Link to='/main'>Enter</Link>
     </li>
     <li className='py-2 px-4 text-white bg-transparent border-2 border-white rounded-md hover:bg-white hover:text-black hover:font-semibold transition-all duration-300' style={{ minWidth: '150px', textAlign: 'center' }}>
-        <Link to='/signIn'>Login / Register</Link>
+        <Link to='/signUp'>Login / Register</Link>
     </li>
 </div>
 

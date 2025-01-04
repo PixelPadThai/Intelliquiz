@@ -6,10 +6,14 @@ import MagicCardDemo from '../Card/Card';
 import Footer from '../Footer/Footer';
 import Intelli_Img from '../../assets/Intelli_Img1.jpg'
 import QuizIcon from '../../assets/QuizIcon2.png'
+import ExamPng from '../../assets/exams.png'
+import SelfLearning from '../../assets/Self_Learning.png'
+import EmpAssessment from '../../assets/EMP_ASSESSMENT.png'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import brainImage from '../../assets/brain.png';
 import MultiplayerIcon from '../../assets/multiplayer.png';
+
 const Home = () => {
 
   const navigate = useNavigate();
@@ -144,21 +148,56 @@ const Home = () => {
       
         
 
-      <div className='bg-black w-full h-screen'>
+      <div className='bg-black w-full min-h-screen pb-32'>
         <div className='w-full h-full mt-20 '>
           <p className='text-7xl text-white ml-8 text-center'>MADE FOR WHOM ?</p>
+          {/* <p className='text-center text-white'>AND WHAT PROBLEM IT WILL SOLVE</p> */}
           <div className='flex gap-2 mt-10  w-full h-2/3 '>
-            <div className='flex-1 round-md border-2 border-white'></div>
-            <div className='flex-1 round-md border-2 border-white'></div>
-            <div className='flex-1 round-md border-2 border-white'></div>
+            <div className='flex-1 rounded-lg border border-white'>
+              {/* <h3 className='text-white text-center  font-semibold text-2xl'>EDUCATION</h3> */}
+              <img className='w-1/2 m-auto mt-6 drop-shadow-[0_5px_10px_rgba(255,255,255,0.7)] animate-fade-in' src={ExamPng} alt="" />
+              <p className='text-white text-3xl font-bold mt-3 text-center shadow-md animate-fade-in '>EDUCATION</p>
+              <div className='w-5/6 mt-4 bg-slate-900 h-1/3 border border-pink m-auto'>
+              <p className='text-white text-lg text-center m-auto mt-2 p-3 animate-letter-pull-up '>
+              IntelliQuiz automates quiz creation for teachers, students, 
+              and EdTech platforms, saving time, enhancing engagement, and ensuring personalized assessments for education, competitive exams,
+              and adaptive learning.
+                </p>
+              </div>
+            </div>
+            <div className='flex-1 rounded-lg border border-white'>
+              {/* <h3 className='text-white text-center  font-semibold text-2xl'>EDUCATION</h3> */}
+              <img className='w-4/6 h-60 m-auto mt-6 drop-shadow-[0_5px_10px_rgba(255,255,255,0.7)] animate-fade-in' src={EmpAssessment} alt="" />
+              <p className='text-white  text-3xl font-bold mt-4 text-center shadow-md animate-fade-in  '>CORPORATE TRAINING</p>
+              <div className='w-5/6 mt-5 bg-slate-900 h-1/3 border border-pink m-auto'>
+              <p className='text-white text-lg text-center m-auto mt-2 p-3 animate-letter-pull-up'>
+                IntelliQuiz automates quiz creation for corporate training, saving time, 
+                enhancing engagement, and ensuring effective employee assessments.
+                </p>
+              </div>
+            </div>
+            <div className='flex-1 rounded-lg border border-white'>
+              {/* <h3 className='text-white text-center  font-semibold text-2xl'>EDUCATION</h3> */}
+              <img className='w-5/6 h-1/2 m-auto mt-3 drop-shadow-[0_5px_10px_rgba(255,255,255,0.7)] animate-fade-in' src={SelfLearning} alt="" />
+              <p className='text-white text-3xl font-bold mt-3 text-center shadow-md animate-fade-in '>SELF-LEARNING</p>
+              <div className='w-5/6 mt-4 bg-slate-900 h-1/3 border-2 border-pink m-auto'>
+                <p className='text-white text-lg text-center m-auto mt-2 p-3 animate-letter-pull-up '>
+                IntelliQuiz simplifies learning by generating quizzes from textbooks or content, helping users test knowledge, retain information, and master 
+                topics effectively through active recall.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      
-      <div className='bg-black w-full min-h-screen '>
+      <hr  className='border-white w-full'/>
+      <div className='bg-black w-full max-h-screen '>
 
         <div className='mt-10'>
-          <p className='text-7xl text-white ml-8 '>About us</p>
+          <p className='text-7xl text-white text-center ml-8 '>About us</p>
+
+          <p className='text-white text-xl p-14 mt-8'>IntelliQuiz turns any content into interactive quizzes, helping educators, students, and self-learners learn effectively. With features like multiplayer mode for collaborative learning and specialized
+             preparation for campus placements, we aim to make learning engaging, accessible, and efficient for everyone.</p>
 
 
           
