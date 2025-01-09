@@ -1,74 +1,158 @@
-// import React from 'react'
-// // import { FaUser } from "react-icons/fa";
-// import { FaUser } from "../../../node_modules/react-icons/fa";
 
 
-// const Login = () => {
-//   return (
-//     <div className='w-screen h-screen bg-black flex justify-center items-center text-white'>
-
-//       <div className='fixed border-2 border-white  backdrop-blur-lg shadow-md shadow-white   rounded-xl flex flex-col  w-1/3 h-2/3 mt-28 p-4'>
-     
-//       <h1 className='text-5xl text-semibold text-center  mt-5 '>SIGNUP USER</h1>
-//        <label htmlFor="" className='mt-14'>UserName</label>
-//        <FaUser />
-//        <input className='p-2 rounded-lg bg-transparent' type="email" required placeholder='Enter UserName' />
-//        <label htmlFor="" className=''>Email</label>
-//        <input className='p-2 rounded-lg' type="email" required placeholder='Enter Email' />
-//        <label htmlFor="">Password</label>
-//        <input className='p-2 rounded-lg' type="password" required placeholder='Enter Password' />
-//        {/* <button className='p-2 bg-purple-950 rounded-md text-white mt-4 '>Signin With Google</button> */}
-
-       
- 
-//        <button className='p-2 text-white rounded-md m-auto my-14  w-1/5 bg-purple-900'>SignUp </button>
-
-//       </div>
-
-       
-//     </div>
-//   )
-// }
-
-// export default Login
-
-
-import React from 'react';
-import { FaUser } from 'react-icons/fa';
-import { FaLock } from "react-icons/fa";
+import React, { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useFirebase } from '../../context/Firebase';
 
 const Login = () => {
+  const firebase = useFirebase();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [isLogin, setIsLogin] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+      if(firebase.sLoggedIn){
+         navigate('/');
+      }
+  },[firebase,navigate])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!isLogin) {
+      // Handle Registration
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+      try {
+        await firebase.signupUserWithEmailAndPassword(email, password);
+        alert('Registration successful!');
+        navigate('/main')
+      } catch (error) {
+        alert(`Invalid User`);
+        alert("Error ",error);
+      }
+    } else {
+      // Handle Login
+      try {
+        await firebase.signInWithEmailAndPass(email, password);
+        alert('Login successful!');
+        navigate('/main');
+      } catch (error) {
+        alert(`Invalid User`);
+      }
+    }
+  };
+  const handleGoogleSignIn = async () => {
+    try {
+      await firebase.signInWithGoogle();
+      alert('Google Sign-In successful!');
+      navigate('/');
+    } catch (error) {
+      alert(`Google Sign-In failed: ${error.message}`);
+    }
+  };
+
+  const toggleForm = () => {
+    setIsLogin(!isLogin);
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+  };
+
   return (
-    <div className='flex flex-col items-center justify-center min-h-screen bg-black'>
-      <div className='bg-white p-8 rounded shadow-md w-full max-w-sm'>
-        <h2 className='text-2xl font-bold mb-6 text-center'>Login</h2>
-        <div className='flex flex-col gap-4'>
-          <label htmlFor="username" className='mt-14'>UserName</label>
-          <div className='flex items-center border border-gray-300 rounded p-2'>
-            <FaUser className='text-gray-500 mr-2' />
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-6 bg-white rounded-md shadow-md">
+        <h2 className="text-2xl font-bold text-center text-gray-700">
+          {isLogin ? "Login" : "Register"}
+        </h2>
+        <form onSubmit={handleSubmit} className="mt-6">
+          {/* Email Field */}
+          <div className="mb-4">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+              Email
+            </label>
             <input
-              type='text'
-              id='username'
-              className='flex-1 outline-none '
-              placeholder='Enter your username'
+              type="email"
+              id="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter your email"
             />
           </div>
-          <label htmlFor="password" className='mt-1'>Password</label>
-          <div className='flex items-center border border-gray-300 rounded p-2'>
-            <FaLock className='text-gray-500 mr-2' />
+
+          {/* Password Field */}
+          <div className="mb-4">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-600">
+              Password
+            </label>
             <input
-              type='password'
-              id='password'
-              className='flex-1 outline-none'
-              placeholder='Enter your password'
+              type="password"
+              id="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="Enter your password"
             />
           </div>
-          <a className='text-blue-800  hover:text-blue-500'>Forgot Password?</a>
-          <button className='bg-blue-500 text-white py-2 px-4 rounded mt-6'>Login</button>
-        </div>
+
+          {/* Confirm Password Field for Registration */}
+          {!isLogin && (
+            <div className="mb-4">
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-600">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={confirmPassword}
+                className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                placeholder="Confirm your password"
+              />
+            </div>
+          )}
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full px-4 py-2 mt-4 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
+            {isLogin ? "Login" : "Register"}
+          </button>
+        </form>
+        <button
+      // onClick={onClick}
+      className="flex items-center justify-center w-full px-4 py-2 mt-4 text-sm font-medium text-white bg-blue-600 border border-gray-300 rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+       onClick={handleGoogleSignIn}   >
+      <img
+        src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png"
+        alt="Google"
+        className="w-5 h-5 mr-2"
+      />
+      Sign in with Google
+    </button>
+
+        {/* Toggle Form Button */}
+        <p className="mt-4 text-sm text-center text-gray-600">
+          {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
+          <button
+            type="button"
+            onClick={toggleForm}
+            className="font-medium text-blue-600 hover:underline"
+          >
+            {isLogin ? "Register" : "Login"}
+          </button>
+         
+        </p>
       </div>
     </div>
   );
 };
 
 export default Login;
+

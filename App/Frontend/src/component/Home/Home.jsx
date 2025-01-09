@@ -96,7 +96,7 @@ const Home = () => {
         <div className='w-full min-h-full  py-24  flex flex-col gap-1 md:flex-row justify-evenly items-center '> 
           <img className='w-1/4 h-1/4 drop-shadow-[0_5px_5px_rgba(255,105,180,0.5)] animate-fade-in' src={brainImage} alt="" />
           <div className='flex flex-col gap-10'>
-             <h3 className='text-white font-semibold  text-4xl animate-fade-move md:text-center  -mt-6'>PARAGAPH BASED QUIZ GENERATION</h3>
+             <h3 className='text-white font-semibold  text-4xl animate-fade-move md:text-center  -mt-6'>PARAGAPH BASED AI QUIZ GENERATION</h3>
              <ul ref={listRef} className='text-white flex flex-col gap-4 p-12 bg-slate-900 border-spacing-1 rounded-lg border-2 border-white py-16 animate-border-beam' >
                <li className='text-white text-xl text-center animate-letter-pull-up '>Lorem, ipsum dolor sit amet consectetur adipisicing elit..</li>
                <li className='text-white text-xl text-center animate-letter-pull-up  '>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
