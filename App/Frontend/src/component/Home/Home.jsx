@@ -58,11 +58,11 @@ const Home = () => {
   return (
 
     <>
-    <div className='bg-black w-full min-h-screen flex flex-col items-center justify-center'>
+    <div className='bg-black w-full scroll-smooth min-h-screen flex flex-col items-center justify-center'>
       <div className='w-full min-h-screen scroll-smooth bg-black flex flex-col md:flex-row text-white '>
         <div className='w-full mt-12 md:mt-24 flex flex-col-reverse md:flex-row justify-between  px-4 md:px-0'>
           <div className=' p-4 md:ml-32 md:w-1/2 flex flex-col items-center gap-2'>
-            <h2 className=' text-3xl md:text-8xl font-bold text-blue-300 mt-10 md:mt-40 animate-fade-move'>
+            <h2 className=' text-3xl md:text-8xl font-bold  text-blue-300 mt-10 md:mt-40 animate-fade-move'>
               AI Driven Quiz
             </h2>
             <p className='mt-5  md:text-xl animate-fade-in '>
