@@ -10,8 +10,8 @@
   - PREPARE FOR CAMPUS PLACEMENT
 
  ## TECHSTACK
-  - Frontend: Javascript,React,taiwlind,Typescript
-  - Backend: Node.js with Express.js 
+  - Frontend: Javascript,React,tailwind,Typescript
+  - Backend: Nodejs with Expressjs 
   - Database: Firebase Realtime Database
   - Authentication: Firebase Authentication
   - AI Integration: Google Generative AI API
