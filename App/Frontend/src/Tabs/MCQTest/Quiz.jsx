@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import CSfundamental_questions from '../../../../Backend/src/quizes/CSfundamental'
+import CSfundamental_questions from '../../../../Backend/src/quizes/CSfundamental';
 import { OAquiz } from "../../../../Backend/src/quizes/OAquiz";
 import dsaQuiz from "../../../../Backend/src/quizes/DSAfundamentals";
-
-
 
 export default function Quiz({ id }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -39,10 +37,10 @@ export default function Quiz({ id }) {
   };
 
   return (
-    <div className="bg-custom-gray border font-raleway border-gray-400 w-3/4 mx-auto rounded-lg shadow-lg p-8">
+    <div className="bg-custom-gray border font-raleway border-gray-400 w-full max-w-3xl mx-auto rounded-lg shadow-lg p-4 md:p-8 transition-all duration-300">
       {!showScore ? (
         <div className="mt-6">
-          <h2 className="text-xl text-gray-300 font-semibold font-raleway decoration-auto">
+          <h2 className="text-lg md:text-xl text-gray-300 font-semibold mb-4">
             {currentQuestionIndex + 1}. {currentQuestion.question}
           </h2>
 
@@ -51,7 +49,7 @@ export default function Quiz({ id }) {
               <button
                 key={index}
                 onClick={() => handleAnswerClick(answer.correct)}
-                className={`btn w-full bg-white text-gray-900 font-semibold py-2 px-4 my-2 border border-gray-700 rounded-lg hover:bg-gray-400 hover:text-white text-xl transition-colors ${
+                className={`w-full bg-white text-gray-900 font-semibold py-2 px-4 md:py-3 md:px-6 my-2 border border-gray-700 rounded-lg transition-all duration-300 hover:bg-gray-400 hover:text-white text-base md:text-xl ${
                   selectedAnswer &&
                   (answer.correct ? "bg-green-300" : "bg-red-300")
                 }`}
@@ -65,7 +63,7 @@ export default function Quiz({ id }) {
           {selectedAnswer && (
             <button
               onClick={handleNextQuestion}
-              className="bg-blue-900 text-white font-semibold py-2 px-6 mt-4 mx-auto rounded-lg hover:bg-blue-700 text-xl transition-colors"
+              className="bg-blue-900 text-white font-semibold py-2 px-6 md:py-3 md:px-8 mt-4 mx-auto rounded-lg transition-all duration-300 hover:bg-blue-700 text-base md:text-xl"
             >
               Next
             </button>
@@ -73,12 +71,12 @@ export default function Quiz({ id }) {
         </div>
       ) : (
         <div className="text-center">
-          <h2 className="text-2xl text-blue-800">
+          <h2 className="text-2xl md:text-3xl text-blue-800">
             You scored {score} out of {selectedQuiz.length}!
           </h2>
           <button
             onClick={resetQuiz}
-            className="bg-blue-900 text-white font-semibold py-2 px-6 mt-4 mx-auto rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-blue-900 text-white font-semibold py-2 px-6 md:py-3 md:px-8 mt-4 mx-auto rounded-lg transition-all duration-300 hover:bg-blue-700 text-base md:text-xl"
           >
             Play Again
           </button>

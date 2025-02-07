@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +15,7 @@ function MultiplayerQuiz() {
   const [question, setQuestion] = useState('');
   const [options, setOptions] = useState([]);
   const [answered, setAnswered] = useState(false);
-  const [seconds, setSeconds] = useState(); // Set the initial duration in seconds
+  const [seconds, setSeconds] = useState(0);
   const [scores, setScores] = useState([]);
   const [winner, setWinner] = useState('');
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
@@ -107,10 +109,10 @@ function MultiplayerQuiz() {
     return (
       <>
         <ConfettiAnimation name={winner} />
-        <div className="bg-black w-screen h-screen text-white flex flex-col justify-center items-center">
-          <h1 className='text-7xl font-bold text-white'>Winner is {winner}</h1>
+        <div className="bg-black min-h-screen w-screen text-white flex flex-col justify-center items-center p-4">
+          <h1 className='text-5xl md:text-7xl font-bold mb-6'>Winner is {winner}</h1>
           <button
-            className='mt-10 px-4 py-2 bg-cyan-600 rounded-md'
+            className='mt-10 px-6 py-3 bg-cyan-600 rounded-md hover:bg-cyan-700 transition-colors'
             onClick={() => window.location.reload()}
           >
             Play Again
@@ -121,47 +123,54 @@ function MultiplayerQuiz() {
   }
 
   return (
-    <div className="bg-black w-screen h-screen text-white flex justify-center items-center">
+    <div className="bg-black min-h-screen w-screen text-white flex flex-col justify-center items-center p-4">
       {!info ? (
-        <div className='flex flex-col gap-20 border-white w-1/2 h-2/3 mt-10 p-5 justify-center'>
-          <h1 className='text-center text-3xl font-bold -mb-6'>Join Our Exciting</h1>
-          <h1 className='text-5xl text-bold text-center -mt-11'>Multiplayer Battles Mode💡</h1>
-          <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
+        <div className='bg-neutral-900 bg-opacity-70 backdrop-blur-lg rounded-lg w-full max-w-md p-6 mt-10 shadow-lg flex flex-col gap-4'>
+          <h1 className='text-center text-2xl md:text-3xl font-bold'>Join Our Exciting</h1>
+          <h2 className='text-center text-3xl md:text-4xl font-bold mb-4'>
+            Multiplayer Battles Mode 💡
+          </h2>
+          <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
             <input
               type='text'
               required
               placeholder='Enter your name'
-              className='text-white p-3 rounded-lg bg-transparent border border-gray-400'
+              className='text-white p-3 rounded-lg bg-transparent border border-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600'
               value={name}
               onChange={(e) => setName(e.target.value)}
-            /><br />
+            />
             <input
               type='number'
               required
               placeholder='Enter room no'
-              className='text-white p-3 rounded-lg bg-transparent border border-gray-400'
+              className='text-white p-3 rounded-lg bg-transparent border border-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600'
               value={room}
               onChange={(e) => setRoom(e.target.value)}
             />
-            <button type='submit' className='border-white p-2 bg-cyan-600 rounded-md w-36 font-raleway m-auto gap-2 mt-14'>JOIN ROOM</button>
+            <button
+              type='submit'
+              className='p-3 bg-cyan-600 rounded-md w-full font-semibold hover:bg-cyan-700 transition-colors mt-4'
+            >
+              JOIN ROOM
+            </button>
           </form>
         </div>
       ) : (
-        <div className='w-1/2 h-2/3 border border-white flex items-center flex-col gap-2'>
-          <h1 className='text-5xl text-bold text-center'>QuizClash 💡</h1>
+        <div className='bg-gray-900 bg-opacity-70 backdrop-blur-lg rounded-lg w-full max-w-lg p-6 mt-10 shadow-lg flex flex-col gap-4'>
+          <h1 className='text-3xl md:text-4xl font-bold text-center'>QuizClash 💡</h1>
           <p className='text-center'>Room Id: {room}</p>
           <ToastContainer />
           {question ? (
-            <div className='w-full h-full'>
+            <div className='flex flex-col gap-4'>
               <p className='text-center'>Remaining Time: {seconds}</p>
-              <div className='w-full text-cyan-200 mt-7'>
-                <p className='text-black bg-white p-5 text-xl'>{question}</p>
+              <div className='bg-white text-black rounded-md p-4'>
+                <p className='text-xl'>{question}</p>
               </div>
-              <ul>
+              <ul className='flex flex-col gap-2'>
                 {options.map((answer, index) => (
                   <li className='bg-white text-black rounded-md' key={index}>
                     <button
-                      className={`options ${selectedAnswerIndex === index ? 'selected' : ''} border-2 border-black w-full p-3 hover:bg-cyan-500`}
+                      className={`w-full p-3 border-2 border-black rounded-md hover:bg-cyan-500 transition-colors ${selectedAnswerIndex === index ? 'bg-cyan-500' : ''}`}
                       onClick={() => handleAnswer(index)}
                       disabled={answered}
                     >
@@ -172,12 +181,14 @@ function MultiplayerQuiz() {
               </ul>
               <div className='mt-4'>
                 {scores.map((player, index) => (
-                  <p key={index}>{player.name}: {player.score}</p>
+                  <p key={index} className="text-center">
+                    {player.name}: {player.score}
+                  </p>
                 ))}
               </div>
             </div>
           ) : (
-            <p>Loading question...</p>
+            <p className='text-center'>Loading question...</p>
           )}
         </div>
       )}
