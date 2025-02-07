@@ -2,20 +2,21 @@ import React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import SpinnerLoad from './SpinnerLoad';
-
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
 const GenAI = () => {
     const [question, setQuestion] = useState("");
     const [answer, setAnswer] = useState("");
     const [loader, setLoader] = useState(false);
     const [displayQuiz, setDisplayquiz] = useState(false);
     const [hide, setHidden] = useState("");
+    console.log(API_KEY)
 
     async function generateAns() {
         setLoader(true);
         setAnswer("loading");
 
         const response = await axios({
-            url: "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyB438NceYat0VDV1bOWFW_jWStArOQqUM8",
+            url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
             method: "post",
             data: {
                 contents: [

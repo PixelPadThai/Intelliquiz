@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        raleway: ['Raleway', 'sans-serif'], 
+      },
+
       colors: {
         'custom-gray': '#181A1B',
       },

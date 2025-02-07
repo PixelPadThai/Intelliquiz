@@ -242,7 +242,7 @@ io.on("connection", (socket) => {
             const isCorrect = correctAnswer !== null && correctAnswer === answerIndex;
 
             
-            currentPlayer.score = isCorrect ? (currentPlayer.score || 0) + 1 : (currentPlayer.score || 0) - 1;
+            currentPlayer.score = isCorrect ? (currentPlayer.score || 0) + 1 : (currentPlayer.score || 0)-1;
 
            
             clearTimeout(rooms[room].questionTimeout);
@@ -316,7 +316,7 @@ function askNewQuestion(room) {
             })),
         });
 
-        // Ask a new question after the timeout
+        
         askNewQuestion(room);
 
     }, 10000);

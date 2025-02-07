@@ -10,6 +10,8 @@ import MultiplayerQuiz from "./Tabs/Multiplayer/MulitplayerQuiz"
 import CSfundamentals from "./Tabs/MCQTest/CardsQuiz/CSfundamentals"
 import DSAfundamentals from "./Tabs/MCQTest/CardsQuiz/DSAfundamentals"
 import OA from "./Tabs/MCQTest/CardsQuiz/OA"
+// import Aboutus from "./component/Contact/Contact"
+import Contact from "./component/Contact/Contact"
 
 function App() {
   // const Location=useLocation();
@@ -36,6 +38,7 @@ function App() {
                <Route path="mcqtest/userdashboard" element={<UserDashBoard/>} />
             <Route/>
             <Route path="/signup" element={<Login/>} />
+            <Route path="/contact" element={<Contact/>} />
             
           </Routes>
 

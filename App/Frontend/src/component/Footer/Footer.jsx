@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='text-center mt-4'>
-        <p className='text-xs'>&copy; 2024 IntelliQuiz. All rights reserved.</p>
+        <p className='text-xs'>&copy; 2025 IntelliQuiz. All rights reserved.</p>
       </div>
     </div>
   );
