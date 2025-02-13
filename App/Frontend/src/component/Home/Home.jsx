@@ -110,17 +110,17 @@ const Home = () => {
               <h3 className="text-white text-2xl md:text-4xl animate-fade-move text-center md:text-left font-raleway">
                 PARAGRAPH BASED AI QUIZ GENERATION
               </h3>
-              <ul className="letter-animate text-white flex flex-col gap-4 p-6 md:p-12 bg-neutral-900 rounded-lg border border-gray-600 py-8 animate-border-beam">
-                <li className="text-white text-base md:text-xl font-light text-center animate-letter-pull-up font-raleway">
-                  AI-Powered Quiz Generation – Convert any paragraph into a quiz instantly.
-                </li>
-                <li className="text-white text-base md:text-xl font-light text-center animate-letter-pull-up font-raleway">
+              <div className="letter-animate text-white flex flex-col  text-left gap-4 p-6 md:p-12 bg-neutral-900 rounded-lg border border-gray-600 py-8 animate-border-beam">
+                <p className="text-white text-base md:text-xl font-light  animate-letter-pull-up font-raleway">
+                  AI-Powered Quiz Generation  Convert any paragraph into a quiz instantly.
+                </p>
+                <p className="text-white text-base md:text-xl font-light text-center animate-letter-pull-up font-raleway">
                   Multi-Language Support: Generate quizzes in multiple languages.
-                </li>
-                <li className="text-white text-base md:text-xl font-light text-center animate-letter-pull-up font-raleway">
+                </p>
+                <p className="text-white  md:text-xl font-light text-center animate-letter-pull-up font-raleway">
                   Turn any text, from academic notes to articles, into an interactive learning session.
-                </li>
-              </ul>
+                </p>
+              </div>
             </div>
           </div>
           <hr className="border-gray-600 w-full" />
@@ -128,20 +128,20 @@ const Home = () => {
           {/* Feature 2 */}
           <div className="w-full py-16 flex flex-col gap-8 md:flex-row justify-evenly items-center">
             <div className="flex flex-col gap-6">
-              <h3 className="text-white text-2xl md:text-4xl animate-fade-move text-center md:text-left font-raleway">
+              <h3 className="text-white text-2xl md:text-4xl animate-fade-move text-left md:text-left font-raleway">
                 MULTIPLAYER QUIZ MODE
               </h3>
-              <ul className="letter-animate text-white flex flex-col gap-4 p-6 md:p-12 bg-neutral-900 font-raleway font-light rounded-lg border border-gray-600 py-8">
-                <li className="text-white text-base md:text-xl text-center animate-letter-pull-up">
+              <div className="letter-animate text-white flex flex-col mdivtext-left gap-4 p-6 md:p-12 bg-neutral-900 font-raleway font-light rounded-lg border border-gray-600 py-8">
+                <p className="text-white text-base md:text-xl text-center animate-letter-pull-up">
                   Compete in real-time quiz sessions.
-                </li>
-                <li className="text-white text-base md:text-xl text-center animate-letter-pull-up">
+                </p>
+                <p className="text-white text-base md:text-xl text-center animate-letter-pull-up">
                   Multiple participants per session for collaborative competition.
-                </li>
-                <li className="text-white text-base md:text-xl text-center animate-letter-pull-up">
+                </p>
+                <p className="text-white text-base md:text-xl text-center animate-letter-pull-up">
                   Randomized questions to keep each session unique.
-                </li>
-              </ul>
+                </p>
+              </div>
             </div>
             <img
               className="w-full max-w-xs drop-shadow-[0_5px_5px_rgba(255,255,255,0.5)] animate-fade-in filter invert"
@@ -162,17 +162,17 @@ const Home = () => {
               <h3 className="text-white text-2xl md:text-4xl animate-fade-move text-center md:text-left font-raleway">
                 Prepare for Campus Placement
               </h3>
-              <ul className="letter-animate text-white flex flex-col gap-4 p-6 md:p-12 bg-neutral-900 font-raleway font-light rounded-lg border border-gray-600 py-8">
-                <li className="text-white text-base md:text-xl text-center animate-letter-pull-up">
+              <div className="letter-animate text-white flex flex-col gap-4 p-6 md:p-12 bg-neutral-900 font-raleway font-light rounded-lg border border-gray-600 py-8">
+                <p className="text-white text-base md:text-xl text-center ">
                   Simulate real exam conditions for effective practice.
-                </li>
-                <li className="text-white text-base md:text-xl text-center animate-letter-pull-up">
+                </p>
+                <p className="text-white text-base md:text-xl text-center ">
                   Quizzes on CS Fundamentals.
-                </li>
-                <li className="text-white text-base md:text-xl text-center animate-letter-pull-up">
+                </p>
+                <p className="text-white text-base md:text-xl text-center ">
                   Test your knowledge with our most asked questions.
-                </li>
-              </ul>
+                </p>
+              </div>
             </div>
           </div>
         </div>
