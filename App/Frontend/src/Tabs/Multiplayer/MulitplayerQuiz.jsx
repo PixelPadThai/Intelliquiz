@@ -5,8 +5,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import io from 'socket.io-client';
 import ConfettiAnimation from '../../component/magicui/ConfettiAnimation';
-
-const socket = io("ws://localhost:5000");
+// http://localhost:3000  VITE_REACT_APP_BACKEND_BASEURL=http://localhost:3000
+// const socket = io("ws://localhost:5000");
+const socket = io(import.meta.env.VITE_REACT_APP_BACKEND_BASEURL);
 
 function MultiplayerQuiz() {
   const [name, setName] = useState('');
