@@ -12,9 +12,12 @@ app.use(cors());
 
 const io = socketio(server, {
     cors: {
-         origin: `http://localhost:5173`,
-       // origin: `${process.env.VITE_REACT_APP_FRONTEND_BASEURL}`,
-        methods: ["GET", "POST"]
+      //    origin: `http://localhost:5173`,
+      //  // origin: `${process.env.VITE_REACT_APP_FRONTEND_BASEURL}`,
+      //   methods: ["GET", "POST"]
+      origin: ['https://intelliquiz-main-4v98.vercel.app', 'http://localhost:5173'], // Allow frontend URLs
+      methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+      credentials: true
     }
 });
 
