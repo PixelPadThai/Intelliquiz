@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import CSfundamental_questions from '../../../../Backend/src/quizes/CSfundamental';
-import { OAquiz } from "../../../../Backend/src/quizes/OAquiz";
-import dsaQuiz from "../../../../Backend/src/quizes/DSAfundamentals";
+// import CSfundamental_questions from '../../../../Backend/quizes/CSfundamental';
+import CSfundamentals from "../../../../Backend/quizes/CSfundamental";
+import { OAquiz } from "../../../../Backend/quizes/OAquiz";
+import dsaQuiz from "../../../../Backend/quizes/DSAfundamentals";
 
 export default function Quiz({ id }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);

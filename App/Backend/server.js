@@ -12,8 +12,8 @@ app.use(cors());
 
 const io = socketio(server, {
     cors: {
-        // origin: `http://localhost:5173`,
-        origin: `${process.env.VITE_REACT_APP_FRONTEND_BASEURL}`,
+         origin: `http://localhost:5173`,
+       // origin: `${process.env.VITE_REACT_APP_FRONTEND_BASEURL}`,
         methods: ["GET", "POST"]
     }
 });
