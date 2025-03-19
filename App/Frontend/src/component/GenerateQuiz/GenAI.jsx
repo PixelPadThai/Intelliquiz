@@ -1,8 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import SpinnerLoad from './SpinnerLoad';
+// const {
+//   GoogleGenerativeAI,
+//   HarmCategory,
+//   HarmBlockThreshold,
+// } = require("@google/generative-ai");
 
-const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+import {GoogleGenerativeAI,HarmCategory,  HarmBlockThreshold} from "@google/generative-ai";
+
+// const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+
+const API_KEY="AIzaSyDVOcvSOnlIpKeu9bF7oBZpPByHSrt9vnM";
 
 const GenAI = () => {
   const [question, setQuestion] = useState("");
@@ -11,27 +20,66 @@ const GenAI = () => {
   const [displayQuiz, setDisplayQuiz] = useState(false);
   const [hide, setHidden] = useState("");
 
+ 
+    
+   
+    
+    // async function run() {
+    //   const chatSession = model.startChat({
+    //     generationConfig,
+    //     history: [
+    //     ],
+    //   });
+    
+    //   const result = await chatSession.sendMessage(`Generate a ten-question quiz in MCQ format about the following topic: ${question}. Ensure each question includes multiple choices and is related to the context and dont give answer at last`);
+    //   console.log(result.response.text());
+    // }
+    
+    
+
   async function generateAns() {
     setLoader(true);
     setAnswer("loading");
 
-    const response = await axios({
-      url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
-      method: "post",
-      data: {
-        contents: [
-          {
-            parts: [{
-              text: `Generate a ten-question quiz in MCQ format about the following topic: ${question}. Ensure each question includes multiple choices and is related to the context and dont give answer at last`
-            }]
-          },
-        ]
-      }
+    // const response = await axios({
+    //   url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
+    //   method: "post",
+    //   data: {
+    //     contents: [
+    //       {
+    //         parts: [{
+    //           text: `Generate a ten-question quiz in MCQ format about the following topic: ${question}. Ensure each question includes multiple choices and is related to the context and dont give answer at last`
+    //         }]
+    //       },
+    //     ]
+    //   }
+    // });
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const genAI = new GoogleGenerativeAI(apiKey);
+    
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.0-flash",
     });
+    
+    const generationConfig = {
+      temperature: 1,
+      topP: 0.95,
+      topK: 40,
+      maxOutputTokens: 8192,
+      responseMimeType: "text/plain",
+    };
+    const chatSession = model.startChat({
+      generationConfig,
+      history: [
+      ],
+    });
+  
+    const result = await chatSession.sendMessage(`Create a ten-question multiple-choice quiz based strictly on the following content: '${question}'. Each question must be directly related to the provided content and include four answer choices labeled A, B, C, and D. Do not provide any headings, titles, introductions, explanations, or conclusions—only the questions and answer choices.`);
+    console.log(result.response.text());
 
     // Simulate delay for modern feel and UX
     setTimeout(() => {
-      setAnswer(response.data.candidates[0].content.parts[0].text);
+      setAnswer(result.response.text());
       setLoader(false);
       setDisplayQuiz(true);
       setHidden("hidden");

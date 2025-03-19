@@ -1,4 +1,4 @@
- const CSfundamental_questions = [
+ const CSfundamental = [
     {
       question: "What is the primary function of an operating system?",
       answers: [
@@ -181,4 +181,4 @@
     },
   ];
   
-  export default CSfundamental_questions
+  export default CSfundamental

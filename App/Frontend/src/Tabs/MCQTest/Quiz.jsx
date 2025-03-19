@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-// import CSfundamental_questions from '../../../../Backend/quizes/CSfundamental';
-import CSfundamentals from "../../../../Backend/quizes/CSfundamental";
+import CSfundamental_questions from '../../../../Backend/quizes/CSfundamental';
+// import CSfundamentals from "../../../../Backend/quizes/CSfundamental";
 import { OAquiz } from "../../../../Backend/quizes/OAquiz";
 import dsaQuiz from "../../../../Backend/quizes/DSAfundamentals";
 
