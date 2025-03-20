@@ -81,7 +81,7 @@ const GenAI = () => {
     setTimeout(() => {
       setAnswer(result.response.text());
       setLoader(false);
-      setDisplayQuiz(true);
+      // setDisplayQuiz(true);
       setHidden("hidden");
     }, 3000);
   }
