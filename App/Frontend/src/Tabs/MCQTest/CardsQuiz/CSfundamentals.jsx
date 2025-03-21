@@ -19,7 +19,7 @@ const CSfundamentals = () => {
           <div className="text-white border bg-custom-gray border-gray-500 w-full max-w-2xl rounded-lg 
                           px-4 md:px-28 py-8 md:py-20 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
                           flex flex-col items-center">
-            <h1 className="w-full text-center text-3xl md:text-6xl font-semibold mb-6">
+            <h1 className="w-full text-center text-md md:text-6xl font-semibold mb-6">
               Rules and Regulations
             </h1>
             <div className="flex flex-col items-center w-full gap-5 mt-4">

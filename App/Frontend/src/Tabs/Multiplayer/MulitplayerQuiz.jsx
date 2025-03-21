@@ -124,12 +124,12 @@ function MultiplayerQuiz() {
   }
 
   return (
-    <div className="bg-black min-h-screen w-screen text-white flex flex-col justify-center items-center p-4">
+    <div className="bg-black min-h-screen  w-screen text-white flex flex-col justify-center items-center p-4">
       {!info ? (
-        <div className='bg-neutral-900 bg-opacity-70 backdrop-blur-lg rounded-lg w-full max-w-md p-6 mt-10 shadow-lg flex flex-col gap-4'>
+        <div className='bg-neutral-900 border border-pink-200 bg-opacity-70 backdrop-blur-lg rounded-lg  max-w-screen-lg p-20 mt-10 shadow-lg flex flex-col gap-4'>
           <h1 className='text-center text-2xl md:text-3xl font-bold'>Join Our Exciting</h1>
           <h2 className='text-center text-3xl md:text-4xl font-bold mb-4'>
-            Multiplayer Battles Mode 💡
+            Multiplayer Battles Mode 🏆
           </h2>
           <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
             <input
@@ -150,7 +150,7 @@ function MultiplayerQuiz() {
             />
             <button
               type='submit'
-              className='p-3 bg-cyan-600 rounded-md w-full font-semibold hover:bg-cyan-700 transition-colors mt-4'
+              className='p-3 bg-blue-400 rounded-md w-full font-semibold hover:bg-cyan-700 transition-colors mt-4'
             >
               JOIN ROOM
             </button>
