@@ -157,21 +157,21 @@ function MultiplayerQuiz() {
           </form>
         </div>
       ) : (
-        <div className='bg-gray-900 bg-opacity-70 backdrop-blur-lg rounded-lg w-full max-w-lg p-6 mt-10 shadow-lg flex flex-col gap-4'>
-          <h1 className='text-3xl md:text-4xl font-bold text-center'>QuizClash 💡</h1>
+        <div className='bg-gray-900 bg-opacity-70 border border-gray-300 backdrop-blur-lg rounded-lg w-2/3  p-6 mt-10 shadow-lg flex flex-col gap-4'>
+          <h1 className='text-3xl md:text-4xl font-bold  text-center'> Multiplayer Mode</h1>
           <p className='text-center'>Room Id: {room}</p>
           <ToastContainer />
           {question ? (
             <div className='flex flex-col gap-4'>
               <p className='text-center'>Remaining Time: {seconds}</p>
-              <div className='bg-white text-black rounded-md p-4'>
+              <div className='bg-cyan-50 text-black rounded-md p-4'>
                 <p className='text-xl'>{question}</p>
               </div>
               <ul className='flex flex-col gap-2'>
                 {options.map((answer, index) => (
                   <li className='bg-white text-black rounded-md' key={index}>
                     <button
-                      className={`w-full p-3 border-2 border-black rounded-md hover:bg-cyan-500 transition-colors ${selectedAnswerIndex === index ? 'bg-cyan-500' : ''}`}
+                      className={`w-full p-3 border-2 border-black rounded-md hover:bg-cyan-300 transition-colors ${selectedAnswerIndex === index ? 'bg-cyan-500' : ''}`}
                       onClick={() => handleAnswer(index)}
                       disabled={answered}
                     >
@@ -180,10 +180,11 @@ function MultiplayerQuiz() {
                   </li>
                 ))}
               </ul>
-              <div className='mt-4'>
+              <div className='mt-4 border border-gray-300'>
+                {/* <p  className="text-center font-semibold bg-gray-300 text-black p-2 border-b"> Player Id  Player Name  Player Score </p> */}
                 {scores.map((player, index) => (
-                  <p key={index} className="text-center">
-                    {player.name}: {player.score}
+                  <p key={index} className="text-center font-semibold bg-gray-300 text-black p-2 border-b">
+                   {index+1}.        {player.name}:       {player.score>=0?<span className="text-green-500">{player.score}</span>:<span className="text-red-500">{player.score}</span>}
                   </p>
                 ))}
               </div>
