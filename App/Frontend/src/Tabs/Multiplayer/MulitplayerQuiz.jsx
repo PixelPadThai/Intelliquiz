@@ -124,77 +124,86 @@ function MultiplayerQuiz() {
   }
 
   return (
-    <div className="bg-black min-h-screen  w-screen text-white flex flex-col justify-center items-center p-4">
-      {!info ? (
-        <div className='bg-neutral-900 border border-pink-200 bg-opacity-70 backdrop-blur-lg rounded-lg  max-w-screen-lg p-20 mt-10 shadow-lg flex flex-col gap-4'>
-          <h1 className='text-center text-2xl md:text-3xl font-bold'>Join Our Exciting</h1>
-          <h2 className='text-center text-3xl md:text-4xl font-bold mb-4'>
-            Multiplayer Battles Mode 🏆
-          </h2>
-          <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
-            <input
-              type='text'
-              required
-              placeholder='Enter your name'
-              className='text-white p-3 rounded-lg bg-transparent border border-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              type='number'
-              required
-              placeholder='Enter room no'
-              className='text-white p-3 rounded-lg bg-transparent border border-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600'
-              value={room}
-              onChange={(e) => setRoom(e.target.value)}
-            />
-            <button
-              type='submit'
-              className='p-3 bg-blue-400 rounded-md w-full font-semibold hover:bg-cyan-700 transition-colors mt-4'
-            >
-              JOIN ROOM
-            </button>
-          </form>
+    
+    <div className="bg-black min-h-screen w-full text-white flex flex-col justify-center items-center p-4">
+  {!info ? (
+    <div className="bg-neutral-900 border border-pink-200 bg-opacity-70 backdrop-blur-lg rounded-lg w-full max-w-lg md:max-w-screen-lg p-6 md:p-20 mt-10 shadow-lg flex flex-col gap-4">
+      <h1 className="text-center text-xl md:text-2xl font-bold">Join Our Exciting</h1>
+      <h2 className="text-center text-2xl md:text-3xl font-bold mb-4">
+        Multiplayer Battles Mode 🏆
+      </h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <input
+          type="text"
+          required
+          placeholder="Enter your name"
+          className="text-white p-3 rounded-lg bg-transparent border border-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="number"
+          required
+          placeholder="Enter room no"
+          className="text-white p-3 rounded-lg bg-transparent border border-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+          value={room}
+          onChange={(e) => setRoom(e.target.value)}
+        />
+        <button
+          type="submit"
+          className="p-3 bg-blue-400 rounded-md w-full font-semibold hover:bg-cyan-700 transition-colors mt-4"
+        >
+          JOIN ROOM
+        </button>
+      </form>
+    </div>
+  ) : (
+    <div className="bg-gray-900 bg-opacity-70 border border-gray-300 backdrop-blur-lg rounded-lg w-full md:w-2/3 lg:w-1/2 p-4 md:p-6 mt-10 shadow-lg flex flex-col gap-4">
+      <h1 className="text-2xl md:text-3xl font-bold text-center">Multiplayer Mode</h1>
+      <p className="text-center">Room Id: {room}</p>
+      <ToastContainer />
+      {question ? (
+        <div className="flex flex-col gap-4">
+          <p className="text-center">Remaining Time: {seconds}</p>
+          <div className="bg-cyan-50 text-black rounded-md p-4">
+            <p className="text-lg md:text-xl">{question}</p>
+          </div>
+          <ul className="flex flex-col gap-2">
+            {options.map((answer, index) => (
+              <li className="bg-white text-black rounded-md" key={index}>
+                <button
+                  className={`w-full p-3 border-2 border-black rounded-md hover:bg-cyan-300 transition-colors ${
+                    selectedAnswerIndex === index ? "bg-cyan-500" : ""
+                  }`}
+                  onClick={() => handleAnswer(index)}
+                  disabled={answered}
+                >
+                  {answer}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-4 border border-gray-300">
+            {scores.map((player, index) => (
+              <p key={index} className="text-center font-semibold bg-gray-300 text-black p-2 border-b">
+                {index + 1}. {player.name}:{" "}
+                {player.score >= 0 ? (
+                  <span className="text-green-500">{player.score}</span>
+                ) : (
+                  <span className="text-red-500">{player.score}</span>
+                )}
+              </p>
+            ))}
+          </div>
         </div>
       ) : (
-        <div className='bg-gray-900 bg-opacity-70 border border-gray-300 backdrop-blur-lg rounded-lg w-2/3  p-6 mt-10 shadow-lg flex flex-col gap-4'>
-          <h1 className='text-3xl md:text-4xl font-bold  text-center'> Multiplayer Mode</h1>
-          <p className='text-center'>Room Id: {room}</p>
-          <ToastContainer />
-          {question ? (
-            <div className='flex flex-col gap-4'>
-              <p className='text-center'>Remaining Time: {seconds}</p>
-              <div className='bg-cyan-50 text-black rounded-md p-4'>
-                <p className='text-xl'>{question}</p>
-              </div>
-              <ul className='flex flex-col gap-2'>
-                {options.map((answer, index) => (
-                  <li className='bg-white text-black rounded-md' key={index}>
-                    <button
-                      className={`w-full p-3 border-2 border-black rounded-md hover:bg-cyan-300 transition-colors ${selectedAnswerIndex === index ? 'bg-cyan-500' : ''}`}
-                      onClick={() => handleAnswer(index)}
-                      disabled={answered}
-                    >
-                      {answer}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-              <div className='mt-4 border border-gray-300'>
-                {/* <p  className="text-center font-semibold bg-gray-300 text-black p-2 border-b"> Player Id  Player Name  Player Score </p> */}
-                {scores.map((player, index) => (
-                  <p key={index} className="text-center font-semibold bg-gray-300 text-black p-2 border-b">
-                   {index+1}.        {player.name}:       {player.score>=0?<span className="text-green-500">{player.score}</span>:<span className="text-red-500">{player.score}</span>}
-                  </p>
-                ))}
-              </div>
-            </div>
-          ) : (
-            <p className='text-center'>Loading question...</p>
-          )}
-        </div>
+        <p className="text-center">Loading question...</p>
       )}
     </div>
+  )}
+</div>
+
+    
   );
 }
 
