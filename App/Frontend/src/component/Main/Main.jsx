@@ -8,7 +8,7 @@ const Main = () => {
     <div className="w-full min-h-screen bg-gradient-to-r from-blue-950 to-cyan-500 flex flex-col md:flex-row items-center justify-around md:gap-6 overflow-auto md:overflow-hidden">
       
       {/* Left Section: Navigation Links */}
-      <div className="w-full md:w-1/2 h-auto mt-8 md:mt-20">
+      <div className="w-full md:w-1/2 h-auto mt-32 md:mt-20">
         <div className="w-full h-auto md:h-[600px] flex flex-col gap-6 justify-evenly px-4">
           <Link to="/aiquiz">
             <BorderBeamDemo name="AI Generated Quiz" />
