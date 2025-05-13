@@ -20,9 +20,11 @@ const firebaseConfig = {
     measurementId: "G-YL6TXE38EQ"
   };
 
+
 export const useFirebase=()=>useContext(FirebaseContext);
-const firebaseapp=initializeApp(firebaseConfig)
-const firebaseAuth=getAuth(firebaseapp);
+export const firebaseapp=initializeApp(firebaseConfig)
+export const firebaseAuth=getAuth(firebaseapp);
+
 const GoogleProvider=new GoogleAuthProvider();
 
 export const FirebaseProvider=(props)=>{
@@ -54,3 +56,5 @@ export const FirebaseProvider=(props)=>{
         {props.children}
         </FirebaseContext.Provider>
 }
+
+export default firebaseAuth;
