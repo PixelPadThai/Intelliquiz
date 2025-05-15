@@ -27,7 +27,7 @@ function App() {
           {/* {!excludedRoutes.includes(location.pathname) && <Navbar />} */}
           <Routes>
             <Route path="/"  element={<Home/>} />
-            <Route element={<ProtectedRoute/>}>
+{/*             <Route element={<ProtectedRoute/>}> */}
             <Route path="/main" element={<Main/>} />
                <Route path="/aiquiz" element={<AIQuiz/>}/>
                <Route path="/multiplayer" element={<MultiplayerQuiz/>} />
@@ -38,7 +38,7 @@ function App() {
                 <Route path="mcqtest/DSA_fundamentals" element={<DSAfundamentals/>} />
                 <Route path="mcqtest/Online_Assessment" element={<OA/>} />
                <Route path="mcqtest/userdashboard" element={<UserDashBoard/>} />
-            <Route/>
+{/*             <Route/> */}
             </Route>
             <Route path="/signup" element={<Login/>} />
             <Route path="/contact" element={<Contact/>} />
