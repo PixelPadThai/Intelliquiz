@@ -1,0 +1,15 @@
+{
+  "name": "intelliquiz",
+  "version": "1.0.0",
+  "description": "IntelliQuiz - AI-driven quiz application",
+  "private": true,
+  "workspaces": [
+    "App/Frontend",
+    "App/Backend"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w App/Frontend",
+    "build": "npm run build -w App/Frontend",
+    "start": "npm run start -w App/Frontend"
+  }
+}
